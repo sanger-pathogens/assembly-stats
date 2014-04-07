@@ -24,6 +24,7 @@ int main(int argc, char* argv[])
 {
     CmdLineOps ops;
     parseOptions(argc, argv, ops);
+    bool first = true;
 
     for (int i = ops.infileStartIndex; i < argc; i++)
     {
@@ -34,6 +35,11 @@ int main(int argc, char* argv[])
             ops.outFormat = FORMAT_TAB_NO_HEAD;
         }
 
+        if (ops.outFormat == FORMAT_HUMAN && first)
+        {
+            cout << string(79, '-') << endl;
+            first = false;
+        }
     }
 
     return 0;
