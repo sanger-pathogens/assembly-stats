@@ -69,6 +69,7 @@ options:\n\
 -s\n\tPrint 'grep friendly' output\n\
 -t\n\tPrint tab-delimited output\n\
 -u\n\tPrint tab-delimited output with no header line\n\
+-v\n\tPrint version and exit\n\
 ";
 
     if (argc < 2)
@@ -98,6 +99,11 @@ options:\n\
         {
             ops.minLength = atoi(argv[ops.infileStartIndex + 1]);
             ops.infileStartIndex += 2;
+        }
+        else if (strcmp(argv[ops.infileStartIndex], "-v") == 0)
+        {
+            cout << "Version: 1.0.0" << endl;
+            exit(0);
         }
         else
         {
