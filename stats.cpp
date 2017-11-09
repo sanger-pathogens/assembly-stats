@@ -31,7 +31,6 @@ Stats::Stats(string filename, unsigned long minimumLength)
     vector<int> seqLengths;
     ifstream inStream;
     unsigned long cumulativeLength = 0;
-    short filetype = fastaOrFastq(filename);
 
     inStream.open(filename.c_str());
 
@@ -43,6 +42,7 @@ Stats::Stats(string filename, unsigned long minimumLength)
 
     filename_ = filename;
 
+    short filetype = fastaOrFastq(inStream);
     while(inStream.good())
     {
         Fasta* seq;
