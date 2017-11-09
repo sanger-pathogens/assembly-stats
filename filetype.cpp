@@ -1,20 +1,8 @@
 #include "filetype.h"
 
-short fastaOrFastq(string filename)
+short fastaOrFastq(istream &inStream)
 {
-    ifstream ifs;
-    ifs.open(filename.c_str());
-    char firstChar;
-
-    if (! ifs.is_open())
-    {
-        cerr << "Error opening file " << filename << endl;
-        exit(1);
-    }
-
-    firstChar = ifs.get();
-    ifs.close();
-
+    char firstChar = inStream.peek();
     switch (firstChar)
     {
         case '>':
@@ -26,3 +14,18 @@ short fastaOrFastq(string filename)
     }
 }
 
+short fastaOrFastq(string filename)
+{
+    ifstream ifs;
+    ifs.open(filename.c_str());
+
+    if (! ifs.is_open())
+    {
+        cerr << "Error opening file " << filename << endl;
+        exit(1);
+    }
+
+    short result = fastaOrFastq(ifs);
+    ifs.close();
+    return result;
+}
