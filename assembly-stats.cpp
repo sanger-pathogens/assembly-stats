@@ -102,7 +102,7 @@ options:\n\
         }
         else if (strcmp(argv[ops.infileStartIndex], "-v") == 0)
         {
-            cout << "Version: 1.0.0" << endl;
+            cout << "Version: 1.0.1" << endl;
             exit(0);
         }
         else
