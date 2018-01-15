@@ -1,10 +1,19 @@
-assembly-stats
-==============
+# assembly-stats
 
 Get assembly statistics from FASTA and FASTQ files.
 
-Installation
-------------
+[![Build Status](https://travis-ci.org/sanger-pathogens/assembly-stats.svg?branch=master)](https://travis-ci.org/sanger-pathogens/assembly-stats)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-brightgreen.svg)](https://github.com/sanger-pathogens/assembly-stats/blob/master/LICENSE)
+
+## Contents
+* [Installation](#installation)
+* [Usage](#usage)
+  * [Example](#example)
+* [License](#license)
+* [Feedback/Issues](#feedbackissues)
+
+## Installation
+If you encounter an issue when installing assembly-stats please contact your local system administrator. If you encounter a bug please log it [here](https://github.com/sanger-pathogens/assembly-stats/issues) or email us at path-help@sanger.ac.uk
 
 Run the following commands to install the program
 `assembly-stats` to `/usr/local/bin/`.
@@ -24,9 +33,7 @@ by changing the call to cmake. For example:
 would mean you finish up with a copy of `assembly-stats` in the directory
 `/foo/bar/`.
 
-Usage
------
-
+## Usage
 Get statistics from a list of files:
 
     assembly-stats file.fasta another_file.fastq
@@ -54,9 +61,7 @@ given length. Get the full usage by running with no files listed:
     -u
         Print tab-delimited output with no header line
 
-Example
--------
-
+### Example
 Here is an example on the _Plasmodium falciparum_ reference genome:
 
     $ assembly-stats Pf3D7_v3.fasta
@@ -75,3 +80,9 @@ The numbers should be self-explanatory, except maybe lines like
 `N50 = 1687656, n = 5`. The N50 is 1687656, with 50% of the assembly in 5
 sequences. A "gap" is any run of Ns of any length (it is case-insensitive so
 counts any "n" as well).
+
+## License
+assembly-stats is free software, licensed under [GPLv3](https://github.com/sanger-pathogens/assembly-stats/blob/master/LICENSE).
+
+## Feedback/Issues
+Please report any issues to the [issues page](https://github.com/sanger-pathogens/assembly-stats/issues) or email path-help@sanger.ac.uk
