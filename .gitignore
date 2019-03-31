@@ -19,3 +19,10 @@
 *.exe
 *.out
 *.app
+
+# Cmake build
+build
+release
+
+# Clion
+.idea
