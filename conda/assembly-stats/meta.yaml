@@ -1,0 +1,22 @@
+{% set version = "1.0.1" %}
+
+package:
+  name: assembly-stats
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/alienzj/assembly-stats.git
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+
+about:
+  home: https://github.com/sanger-pathogens/assembly-stats
+  license: GPLv3
+  summary: Get assembly statistics from FASTA and FASTQ files, path-help@sanger.ac.uk
