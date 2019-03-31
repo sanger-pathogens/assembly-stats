@@ -4,10 +4,10 @@
 #include <cstring>
 #include <vector>
 
-#include "../include/fasta.h"
-#include "../include/fastq.h"
-#include "../include/filetype.h"
-#include "../include/stats.h"
+#include "fasta.h"
+#include "fastq.h"
+#include "filetype.h"
+#include "stats.h"
 
 using namespace std;
 

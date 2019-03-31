@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
-project(assembly-stats LANGUAGES CXX)
+project(assembly-stats
+        VERSION 1.0.1
+        LANGUAGES CXX
+        DESCRIPTION "Get assembly statistics from FASTA and FASTQ files"
+        HOMEPAGE_URL "https://github.com/sanger-pathogens/assembly-stats")
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -15,12 +19,14 @@ endif ()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O3")
 
-enable_testing()
-
-find_package(GTest REQUIRED)
-
-include_directories(${GTEST_INCLUDE_DIRS})
 include_directories("${CMAKE_SOURCE_DIR}/include")
 
 add_subdirectory(src)
-add_subdirectory(test)
+
+option(ASMSTATS_ENABLE_TESTS "Enable building & running unit tests" ON)
+if (ASMSTATS_ENABLE_TESTS)
+    enable_testing()
+    find_package(GTest REQUIRED)
+    include_directories(${GTEST_INCLUDE_DIRS})
+    add_subdirectory(test)
+endif ()

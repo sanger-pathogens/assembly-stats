@@ -1,4 +1,4 @@
-#include "../include/fastq.h"
+#include "fastq.h"
 
 Fastq::Fastq() : Fasta(), qual_("") {}
 

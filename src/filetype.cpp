@@ -1,4 +1,4 @@
-#include "../include/filetype.h"
+#include "filetype.h"
 
 short fastaOrFastq(istream &inStream)
 {

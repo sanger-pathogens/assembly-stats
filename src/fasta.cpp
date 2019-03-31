@@ -1,4 +1,4 @@
-#include "../include/fasta.h"
+#include "fasta.h"
 
 Fasta::Fasta() : id_(""), seq_("") {}
 
