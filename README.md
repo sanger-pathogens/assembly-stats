@@ -78,8 +78,8 @@ Here is an example on the _Plasmodium falciparum_ reference genome:
 
 The numbers should be self-explanatory, except maybe lines like
 `N50 = 1687656, n = 5`. The N50 is 1687656, with 50% of the assembly in 5
-sequences. A "gap" is any consecutive run of Ns of any length (it is case-insensitive so
-counts any "n" as well).  N_count is the total Ns across the entire assembly.
+sequences. A "gap" is any consecutive run of Ns (undetermined nucleotide bases) of any length (it is case-insensitive so
+counts any "n" as well).  N_count is the total Ns (undetermined nucleotide bases) across the entire assembly.
 
 ## License
 assembly-stats is free software, licensed under [GPLv3](https://github.com/sanger-pathogens/assembly-stats/blob/master/LICENSE).
