@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <vector>
 
+#include "bxzstr.hpp"
 
 using namespace std;
 
@@ -41,7 +42,7 @@ public:
 
     // reads next sequence from file, filling contents appropriately
     // Returns true if worked ok, false if at end of file
-    virtual bool fillFromFile(istream& inStream);
+    virtual bool fillFromFile(bxz::ifstream& inStream);
 
 protected:
     string id_;

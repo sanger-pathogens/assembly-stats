@@ -1,6 +1,6 @@
 #include "filetype.h"
 
-short fastaOrFastq(istream &inStream)
+short fastaOrFastq(bxz::ifstream &inStream)
 {
     char firstChar = inStream.peek();
     switch (firstChar)
@@ -16,8 +16,8 @@ short fastaOrFastq(istream &inStream)
 
 short fastaOrFastq(string filename)
 {
-    ifstream ifs;
-    ifs.open(filename.c_str());
+    bxz::ifstream ifs;
+    ifs.open(filename);
 
     if (! ifs.is_open())
     {

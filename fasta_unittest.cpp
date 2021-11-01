@@ -1,7 +1,7 @@
 #include <iostream>
 #include "fasta.h"
 #include "gtest/gtest.h"
-
+#include "bxzstr.hpp"
 
 TEST(Fasta, DefaultConstructor)
 {
@@ -83,7 +83,7 @@ TEST(Fasta, ReadFromFile)
 {
     Fasta fa;
     int counter = 0;
-    ifstream inStream("test_files/fasta_unittest.fasta");
+    bxz::ifstream inStream("test_files/fasta_unittest.fasta");
 
     if (! inStream.is_open())
     {

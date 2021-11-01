@@ -3,7 +3,7 @@
 #include <sstream>
 #include "fastq.h"
 #include "gtest/gtest.h"
-
+#include "bxzstr.hpp"
 
 TEST(Fastq, DefaultConstructor)
 {
@@ -39,7 +39,7 @@ TEST(Fastq, ReadFromFile)
 {
     Fastq fq;
     unsigned int counter = 0;
-    ifstream inStream("test_files/fastq_unittest.fastq");
+    bxz::ifstream inStream("test_files/fastq_unittest.fastq");
 
     if (! inStream.is_open())
     {
