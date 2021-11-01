@@ -15,6 +15,10 @@ Get assembly statistics from FASTA and FASTQ files.
 ## Installation
 If you encounter an issue when installing assembly-stats please contact your local system administrator. If you encounter a bug please log it [here](https://github.com/sanger-pathogens/assembly-stats/issues) or email us at path-help@sanger.ac.uk
 
+### Dependencies
+- zlib
+
+### Compiling from source
 Run the following commands to install the program
 `assembly-stats` to `/usr/local/bin/`.
 
@@ -40,6 +44,11 @@ Get statistics from a list of files:
 
 Detection of FASTA or FASTQ format of each file is automatic from the file
 contents, so file names and extensions are irrelevant.
+
+The files can be supplied in compressed format (.gz, .bz2 or
+.xz). Compression support depends on what libraries are available when
+assembly-stats is compiled. Compression type is detected
+automatically and does not depend on the file name extensions.
 
 The default output format is human readable.
 You can change the output format and ignore sequences shorter than a
