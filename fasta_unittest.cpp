@@ -101,3 +101,26 @@ TEST(Fasta, ReadFromFile)
 
     EXPECT_EQ(3, counter);
 }
+
+TEST(Fasta, ReadFromGzFile)
+{
+    Fasta fa;
+    int counter = 0;
+    bxz::ifstream inStream("test_files/fasta_unittest.fasta.gz");
+
+    if (! inStream.is_open())
+    {
+        cerr << "Error opening test file test_files/fasta_unittest.fasta.gz" << endl;
+        exit(1);
+    }
+
+    while (fa.fillFromFile(inStream))
+    {
+        counter++;
+        string expectedName = static_cast<ostringstream>( (ostringstream() << counter) ).str();
+        EXPECT_EQ(0, fa.name().compare(expectedName));
+        EXPECT_EQ(0, fa.seq().compare("ACGT"));
+    }
+
+    EXPECT_EQ(3, counter);
+}

@@ -55,3 +55,24 @@ TEST(Fastq, ReadFromFile)
         EXPECT_EQ(0, fq.seq().compare("ACGT"));
     }
 }
+
+TEST(Fastq, ReadFromGzFile)
+{
+    Fastq fq;
+    unsigned int counter = 0;
+    bxz::ifstream inStream("test_files/fastq_unittest.fastq.gz");
+
+    if (! inStream.is_open())
+    {
+        cerr << "Error opening test file test_files/fastq_unittest.fastq.gz" << endl;
+        exit(1);
+    }
+
+    while (fq.fillFromFile(inStream))
+    {
+        counter++;
+        string expectedName = static_cast<ostringstream>( (ostringstream() << counter) ).str();
+        EXPECT_EQ(0, fq.name().compare(expectedName));
+        EXPECT_EQ(0, fq.seq().compare("ACGT"));
+    }
+}
