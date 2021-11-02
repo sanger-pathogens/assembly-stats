@@ -94,7 +94,7 @@ TEST(Fasta, ReadFromFile)
     while (fa.fillFromFile(inStream))
     {
         counter++;
-        string expectedName = static_cast<ostringstream*>( &(ostringstream() << counter) )->str();
+        string expectedName = static_cast<ostringstream>( (ostringstream() << counter) ).str();
         EXPECT_EQ(0, fa.name().compare(expectedName));
         EXPECT_EQ(0, fa.seq().compare("ACGT"));
     }
