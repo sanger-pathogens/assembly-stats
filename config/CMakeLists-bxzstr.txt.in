@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 2.8.2)
+
+project(bxzstr-get NONE)
+include(ExternalProject)
+
+ExternalProject_Add(bxzstr-download
+  GIT_REPOSITORY    https://github.com/tmaklin/bxzstr.git
+  GIT_TAG           4c5864779802ad5460c9b63c958239bbe725f81a
+  SOURCE_DIR        "${CMAKE_CURRENT_BINARY_DIR}/external/bxzstr"
+  BUILD_IN_SOURCE   0
+  BUILD_COMMAND	    ""
+  INSTALL_COMMAND   ""
+  TEST_COMMAND      ""
+  UPDATE_COMMAND    ""
+)

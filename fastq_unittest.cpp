@@ -3,7 +3,7 @@
 #include <sstream>
 #include "fastq.h"
 #include "gtest/gtest.h"
-
+#include "bxzstr.hpp"
 
 TEST(Fastq, DefaultConstructor)
 {
@@ -39,7 +39,7 @@ TEST(Fastq, ReadFromFile)
 {
     Fastq fq;
     unsigned int counter = 0;
-    ifstream inStream("test_files/fastq_unittest.fastq");
+    bxz::ifstream inStream("test_files/fastq_unittest.fastq");
 
     if (! inStream.is_open())
     {
@@ -50,7 +50,32 @@ TEST(Fastq, ReadFromFile)
     while (fq.fillFromFile(inStream))
     {
         counter++;
-        string expectedName = static_cast<ostringstream*>( &(ostringstream() << counter) )->str();
+	ostringstream stream;
+	stream << counter;
+	string expectedName = stream.str();
+	EXPECT_EQ(0, fq.name().compare(expectedName));
+        EXPECT_EQ(0, fq.seq().compare("ACGT"));
+    }
+}
+
+TEST(Fastq, ReadFromGzFile)
+{
+    Fastq fq;
+    unsigned int counter = 0;
+    bxz::ifstream inStream("test_files/fastq_unittest.fastq.gz");
+
+    if (! inStream.is_open())
+    {
+        cerr << "Error opening test file test_files/fastq_unittest.fastq.gz" << endl;
+        exit(1);
+    }
+
+    while (fq.fillFromFile(inStream))
+    {
+        counter++;
+	ostringstream stream;
+	stream << counter;
+	string expectedName = stream.str();
         EXPECT_EQ(0, fq.name().compare(expectedName));
         EXPECT_EQ(0, fq.seq().compare("ACGT"));
     }

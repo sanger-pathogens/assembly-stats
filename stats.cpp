@@ -1,5 +1,7 @@
 #include "stats.h"
 
+#include "bxzstr.hpp"
+
 void Stats::init()
 {
     mean_ = 0;
@@ -29,7 +31,7 @@ Stats::Stats(string filename, unsigned long minimumLength)
 {
     init();
     vector<int> seqLengths;
-    ifstream inStream;
+    bxz::ifstream inStream;
     unsigned long cumulativeLength = 0;
 
     inStream.open(filename.c_str());

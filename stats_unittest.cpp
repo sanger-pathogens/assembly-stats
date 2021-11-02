@@ -18,6 +18,11 @@ Gaps = 2\n\
 
     string got = s.toString(FORMAT_HUMAN);
     EXPECT_EQ(0, expected.compare(got));
+
+    // Test gzipped input
+    Stats s2("test_files/stats_unittest.fasta.gz");
+    got = s.toString(FORMAT_HUMAN);
+    EXPECT_EQ(0, expected.compare(got));
 }
 
 
@@ -53,6 +58,11 @@ test_files/stats_unittest.fasta\tn90n\t4\n\
 
     string got = s.toString(FORMAT_GREPPY);
     EXPECT_EQ(0, expected.compare(got));
+
+    // Test gzipped input
+    Stats s2("test_files/stats_unittest.fasta.gz");
+    got = s.toString(FORMAT_GREPPY);
+    EXPECT_EQ(0, expected.compare(got));
 }
 
 
@@ -65,6 +75,11 @@ test_files/stats_unittest.fasta\t21\t5\t4.20\t8\t1\t4\t2\t6\t2\t4\t3\t2\t4\n\
 
     string got = s.toString(FORMAT_TAB);
     EXPECT_EQ(0, expected.compare(got));
+
+    // Test gzipped input
+    Stats s2("test_files/stats_unittest.fasta.gz");
+    got = s.toString(FORMAT_TAB);
+    EXPECT_EQ(0, expected.compare(got));
 }
 
 
@@ -73,5 +88,10 @@ TEST(Stats, TabDelimitedNoHeader)
     Stats s("test_files/stats_unittest.fasta");
     string expected = "test_files/stats_unittest.fasta\t21\t5\t4.20\t8\t1\t4\t2\t6\t2\t4\t3\t2\t4\n";
     string got = s.toString(FORMAT_TAB_NO_HEAD);
+    EXPECT_EQ(0, expected.compare(got));
+
+    // Test gzipped input
+    Stats s2("test_files/stats_unittest.fasta.gz");
+    got = s.toString(FORMAT_TAB_NO_HEAD);
     EXPECT_EQ(0, expected.compare(got));
 }
