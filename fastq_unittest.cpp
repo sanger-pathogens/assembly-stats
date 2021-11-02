@@ -50,8 +50,10 @@ TEST(Fastq, ReadFromFile)
     while (fq.fillFromFile(inStream))
     {
         counter++;
-        string expectedName = static_cast<ostringstream>( (ostringstream() << counter) ).str();
-        EXPECT_EQ(0, fq.name().compare(expectedName));
+	ostringstream stream;
+	stream << counter;
+	string expectedName = stream.str();
+	EXPECT_EQ(0, fq.name().compare(expectedName));
         EXPECT_EQ(0, fq.seq().compare("ACGT"));
     }
 }
@@ -71,7 +73,9 @@ TEST(Fastq, ReadFromGzFile)
     while (fq.fillFromFile(inStream))
     {
         counter++;
-        string expectedName = static_cast<ostringstream>( (ostringstream() << counter) ).str();
+	ostringstream stream;
+	stream << counter;
+	string expectedName = stream.str();
         EXPECT_EQ(0, fq.name().compare(expectedName));
         EXPECT_EQ(0, fq.seq().compare("ACGT"));
     }
