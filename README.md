@@ -13,7 +13,7 @@ Get assembly statistics from FASTA and FASTQ files.
 * [Feedback/Issues](#feedbackissues)
 
 ## Installation
-If you encounter an issue when installing assembly-stats please contact your local system administrator. If you encounter a bug please log it [here](https://github.com/sanger-pathogens/assembly-stats/issues) or email us at path-help@sanger.ac.uk
+If you encounter an issue when installing assembly-stats please contact your local system administrator. If you encounter a bug please log it [here](https://github.com/sanger-pathogens/assembly-stats/issues).
 
 ### Dependencies
 - zlib
@@ -94,4 +94,4 @@ counts any "n" as well).  N_count is the total Ns (undetermined nucleotide bases
 assembly-stats is free software, licensed under [GPLv3](https://github.com/sanger-pathogens/assembly-stats/blob/master/LICENSE).
 
 ## Feedback/Issues
-Please report any issues to the [issues page](https://github.com/sanger-pathogens/assembly-stats/issues) or email path-help@sanger.ac.uk
+We currently do not have the resources to provide support for `assembly-stats`. However, the community might be able to help you out if you report any issues about usage of the software to the [issues page](https://github.com/sanger-pathogens/assembly-stats/issues).
